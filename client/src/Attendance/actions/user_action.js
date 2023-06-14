@@ -6,7 +6,7 @@ export const registerUser = (user) => async dispatch => {
     })
 
     try {
-        const res = await axios.post("http://localhost:5000/stuReg", user);
+        const res = await axios.post(`${process?.env?.REACT_APP_SERVER_URL}/stuReg`, user);
         console.log(res);
         dispatch({
             type: 'USER_REGISTER_SUCCESS'
@@ -25,7 +25,7 @@ export const registerTeacher = (user) => async dispatch => {
     })
 
     try {
-        const res = await axios.post("http://localhost:5000/teachReg", user);
+        const res = await axios.post(`${process?.env?.REACT_APP_SERVER_URL}/teachReg`, user);
         console.log(res);
         dispatch({
             type: 'USER_REGISTER_SUCCESS'
@@ -52,14 +52,14 @@ export const loginUser = (user,type) => async dispatch => {
              if(type == "Student" && user.email == 'admin@gmail.com'){
                 return ;
              }
-          res =  await axios.post("http://localhost:5000/StuSign", user);
+          res =  await axios.post(`${process?.env?.REACT_APP_SERVER_URL}/StuSign`, user);
          
         } else if (type=="Admin") {
             console.log("adim","sdfgffdddddddf")
-            // res = await axios.post("http://localhost:5000/Signin", user);
+            // res = await axios.post(`${process?.env?.REACT_APP_SERVER_URL}/Signin", user);
             
         } else if (type=="Teacher") {
-            res = await axios.post("http://localhost:5000/TecSign", user);
+            res = await axios.post(`${process?.env?.REACT_APP_SERVER_URL}/TecSign`, user);
         }
         
         
@@ -127,7 +127,7 @@ export const userProfile = (id,type="other") => async (dispatch, getState) => {
     console.log(id)
 
     try {
-        const response = await axios.post(`http://localhost:5000/${user_type}`,{id});
+        const response = await axios.post(`${process?.env?.REACT_APP_SERVER_URL}/${user_type}`,{id});
         console.log(response);
         dispatch({
             type: "USER_PROFILE_SUCCESS",
@@ -178,7 +178,7 @@ export const UpdateTProfile = (pic)=> async dispatch =>{
     try {
         //  await axios.post('/api/users/removeStudent',{postId});
         // const response2 = await axios.get(`/api/users/allStudent`);
-       const res = await axios.put(`http://localhost:5000/tupdatepic`, { pic }, config);
+       const res = await axios.put(`process?.env?.REACT_APP_SERVER_URL/tupdatepic`, { pic }, config);
        console.log(res)
         //   console.log(response)
         dispatch({
@@ -208,7 +208,7 @@ export const UpdateProfile = (pic)=> async dispatch =>{
     try {
         //  await axios.post('/api/users/removeStudent',{postId});
         // const response2 = await axios.get(`/api/users/allStudent`);
-       const res = await axios.put(`http://localhost:5000/updatepic`, { pic }, config);
+       const res = await axios.put(`process?.env?.REACT_APP_SERVER_URL/updatepic`, { pic }, config);
        console.log(res)
         //   console.log(response)
         dispatch({

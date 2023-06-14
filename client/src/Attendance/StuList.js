@@ -79,7 +79,7 @@ const handleRequest = ()=> {
         //     headers: { 'Content-Type': 'application/json' },
         //     body: JSON.stringify(Obj)
         // };
-        // const response = await fetch('http://localhost:5000/makeAttdence', requestOptions);
+        // const response = await fetch('process?.env?.REACT_APP_SERVER_URL/makeAttdence', requestOptions);
         // const data = await response.json();
         // setUserItem(data);
         //setCount(count+1)
